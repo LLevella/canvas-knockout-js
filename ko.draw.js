@@ -8,9 +8,9 @@ define(['knockout'], function(ko) {
     'use strict';
 
     ko.bindingHandlers.koDraw = {
-			init: function(element, valueAccessor) {
-				var target = valueAccessor();
+      init: function(element, valueAccessor) {
+        var target = valueAccessor();
         target(element);
-			}
-		};
+      }
+    };
 });

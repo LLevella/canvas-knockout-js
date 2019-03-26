@@ -1,5 +1,55 @@
 <form class="form-horizontal">
     <div class="form-group">
-      <canvas data-bind="attr: { width: imageWidth, height: imageHeight, id: myCanvas}" style="border: 1px solid black; font: 12px fantasy;"></canvas>
+      <div class="col-sm-6">
+          <canvas data-bind="attr: { width: imageWidth, height: imageHeight, id: RxTxLan}" style="border: 1px solid black; font: 12px sans-serif;"></canvas>
+      </div>
+      <div class="col-sm-6">
+          <canvas data-bind="attr: { width: imageWidth, height: imageHeight, id: RxTxWlan}" style="border: 1px solid black; font: 12px sans-serif;"></canvas>
+      </div>
+      
     </div>
+
+  <legend data-bind="click: changeTx" class="col-sm-12 clickable"> <span data-bind="restext: 'Transmit'"></span> <span class="fa fa-angle-down"></span> </legend>
+  <div class="table" data-bind="collapse: canShowTx()">
+      <table class="table">
+          <thead>
+              <th data-bind="restext: 'Interface'"></th>
+              <th data-bind="restext: 'TotalPackets'"></th>
+              <th data-bind="restext: 'TotalBytes'"></th>
+              <th data-bind="restext: 'TxDrop'"></th>
+              <th data-bind="restext: 'Errors'"></th>
+          </thead>
+          <tbody data-bind="foreach: data.tx">
+              <td data-bind="text: $data['name']"></td>
+              <td data-bind="text: $data['packets']"></td>
+              <td data-bind="text: $data['bytes']"></td>
+              <td data-bind="text: $data['drop']"></td>
+              <td data-bind="text: $data['errors']"></td>
+          </tbody>
+      </table>
+  </div>
+
+  <legend data-bind="click: changeRx" class="col-sm-12 clickable"> <span data-bind="restext: 'Receive '"></span> <span class="fa fa-angle-down"></span> </legend>
+  <div class="table" data-bind="collapse: canShowRx()">
+      <table class="table">
+        <thead>
+          <th data-bind="restext: 'Interface'"></th>
+          <th data-bind="restext: 'TotalPackets'"></th>
+          <th data-bind="restext: 'TotalBytes'"></th>
+          <th data-bind="restext: 'RxDrop'"></th>
+          <th data-bind="restext: 'Errors'"></th>
+        </thead>
+        <tbody data-bind="foreach: data.rx">
+            <td data-bind="text: $data['name']"></td>
+            <td data-bind="text: $data['packets']"></td>
+            <td data-bind="text: $data['bytes']"></td>
+            <td data-bind="text: $data['drop']"></td>
+            <td data-bind="text: $data['errors']"></td>
+        </tbody>
+      </table>
+  </div>
 </form>
+
+
+
+
